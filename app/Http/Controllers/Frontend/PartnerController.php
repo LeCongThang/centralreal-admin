@@ -23,21 +23,37 @@ class PartnerController extends Controller
     {
         $partner_investor = Partner::where('is_investor', 1)->orderByDesc('updated_at')->get();
         $partner_connect = Partner::where('is_connect', 1)->orderByDesc('updated_at')->get();
+        $partner_bank = Partner::where('is_bank', 1)->orderByDesc('updated_at')->get();
 
         return response()->json([
             'data' => [
                 'partner_investor' => $partner_investor,
-                'partner_connect' => $partner_connect
+                'partner_connect' => $partner_connect,
+                'partner_bank' => $partner_bank
             ],
             'message' => 'Success'
         ])->setStatusCode('200', 'Success');
     }
+
     public function getPartnerById($id)
     {
+        $partner_related = [];
         $partner = Partner::find($id);
-        if($partner){
+        if ($partner->is_investor == 1) {
+            $partner_related = Partner::where('is_investor', 1)->whereNotIn('id', [$partner->id])->limit(3)->get();
+        }
+        elseif ($partner->is_connect == 1) {
+            $partner_related = Partner::where('is_connect', 1)->whereNotIn('id', [$partner->id])->limit(3)->get();
+        }
+        elseif ($partner->is_bank == 1) {
+            $partner_related = Partner::where('is_bank', 1)->whereNotIn('id', [$partner->id])->limit(3)->get();
+        }
+        if ($partner) {
             return response()->json([
-                'data' => $partner,
+                'data' => [
+                    'partner' => $partner,
+                    'partner_related' => $partner_related
+                ],
                 'message' => 'Success'
             ])->setStatusCode('200', 'Success');
         }

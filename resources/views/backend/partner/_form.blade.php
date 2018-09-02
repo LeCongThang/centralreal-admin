@@ -49,6 +49,9 @@
                                 <label>
                                     <input type="radio" value="0" style="width: 20px; height: 20px" name="is_check" {{$isEdit ? ($partner->is_connect ? 'checked':'') :''}}>
                                     Sàn liên kết</label>
+                                <label>
+                                    <input type="radio" value="2" style="width: 20px; height: 20px" name="is_check" {{$isEdit ? ($partner->is_bank ? 'checked':'') :''}}>
+                                    Ngân hàng</label>
                             </div>
                             <div class="form-group">
                                 <label>Tên</label>

@@ -37,7 +37,7 @@ return array(
     'App\\Http\\Controllers\\Backend\\Partner\\CreatePartnerController' => $baseDir . '/app/Http/Controllers/Backend/Partner/CreatePartnerController.php',
     'App\\Http\\Controllers\\Backend\\Partner\\PartnerController' => $baseDir . '/app/Http/Controllers/Backend/Partner/PartnerController.php',
     'App\\Http\\Controllers\\Backend\\Partner\\UpdatePartnerController' => $baseDir . '/app/Http/Controllers/Backend/Partner/UpdatePartnerController.php',
-    'App\\Http\\Controllers\\Backend\\Project\\CreateProjectController' => $baseDir . '/app/Http/Controllers/Backend/Project/CreateProjectController.php',
+    'App\\Http\\Controllers\\Backend\\Project\\CreatePeopleController' => $baseDir . '/app/Http/Controllers/Backend/Project/CreatePeopleController.php,
     'App\\Http\\Controllers\\Backend\\Project\\ProjectController' => $baseDir . '/app/Http/Controllers/Backend/Project/ProjectController.php',
     'App\\Http\\Controllers\\Backend\\Project\\UpdateProjectController' => $baseDir . '/app/Http/Controllers/Backend/Project/UpdateProjectController.php',
     'App\\Http\\Controllers\\Backend\\RecruitmentCentralReal\\CreateRecruitmentCentralRealController' => $baseDir . '/app/Http/Controllers/Backend/RecruitmentCentralReal/CreateRecruitmentCentralRealController.php',

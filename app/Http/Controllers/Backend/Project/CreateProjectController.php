@@ -98,7 +98,7 @@ class CreateProjectController extends Controller
 
             if ($request->hasFile('avatar')) {
                 $image = $request->file('avatar');
-                $filename = 'project-' .time().'.'. $image->getClientOriginalExtension();
+                $filename = 'project-' .time().'.jpg';
                 $destinationPath = public_path('images/project/'.$filename);
                 Image::make($image->getRealPath())->save($destinationPath);
                 $project->image_thumbnail = $filename;
@@ -141,7 +141,7 @@ class CreateProjectController extends Controller
                     foreach ($image as $file) {
                         $project_image=new ProjectImage();
                         $project_image->project_id=$project->id;
-                        $file_name = 'project-' .time().$i. '.'.$file->getClientOriginalExtension();
+                        $file_name = 'project-' .time().$i. '.jpg';
                         $destinationPath = public_path('images/project/'.$file_name);
                         Image::make($file->getRealPath())->resize(900, 600)->save($destinationPath);
                         $project_image->image = $file_name;

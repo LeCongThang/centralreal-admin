@@ -57,7 +57,7 @@ class NewsController extends Controller
     {
         $news = News::find($news_id);
         if ($news) {
-            $news_featured = News::where('id','!=', $news_id)->where('post_type',1)->where('is_featured',1)->orderByDesc('created_at')
+            $news_featured = News::where('id','!=', $news_id)->where('post_type',$news->post_type)->where('is_featured',1)->orderByDesc('created_at')
                 ->limit(5)->get();
             $projects_rela=Project::with(['rela_category:id,title_vi,title_en','rela_partner:id,name'])
                 ->where('is_sale', 1)->orderBy('sort_order')->limit(3)

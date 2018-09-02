@@ -15,7 +15,7 @@ use File;
 class UpdateProjectController extends Controller
 {
     /**
-     * UpdateProjectController constructor.
+     * UpdatePeopleController constructor.
      */
     public function __construct()
     {

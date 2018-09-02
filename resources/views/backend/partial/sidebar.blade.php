@@ -40,6 +40,7 @@
                     <li><a href="{{url('about-us')}}"><i class="fa fa-list-ul"></i> GIỚI THIỆU</a></li>
                 </ul>
             </li>
+            <li><a href="{{url('people')}}"><i class="fa fa-envelope-o text-yellow"></i> <span>QUẢN LÝ BAN LÃNH ĐẠO</span></a></li>
             <li class="treeview">
                 <a href="javascript:void(0)">
                     <i class="fa fa-newspaper-o text-yellow"></i>

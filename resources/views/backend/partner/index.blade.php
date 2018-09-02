@@ -24,7 +24,8 @@
             <div class="col-md-12">
                 <div class="box">
                     <div class="box-header">
-                        <a href="{{url('partner/create')}}" class="btn btn-primary"><i class="fa fa-plus-square"></i>&nbsp;&nbsp;&nbsp;Thêm Đối tác</a>
+                        <a href="{{url('partner/create')}}" class="btn btn-primary"><i class="fa fa-plus-square"></i>&nbsp;&nbsp;&nbsp;Thêm
+                            Đối tác</a>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
@@ -37,42 +38,50 @@
                         <div class="tab-content">
                             <div class="active tab-pane" id="vietnam">
                                 @if(count($partner)!=0)
-                                <table id="datatable" class="table table-bordered table-striped">
-                                    <thead>
-                                    <tr>
-                                        <th width="5%">#</th>
-                                        <th style="width: 150px">Hình ảnh</th>
-                                        <th>Tên</th>
-                                        <th>Slug</th>
-                                        <th>Loại</th>
-                                        <th width="100px"></th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    @foreach($partner as $item)
+                                    <table id="datatable" class="table table-bordered table-striped">
+                                        <thead>
                                         <tr>
-                                            <td>{{$loop->iteration}}</td>
-                                            <td>
-                                                <img src="{{asset('images/partner')}}/{{$item->image}}" style="width: 100%">
-                                            </td>
-                                            <td>{{$item->name}}</td>
-                                            <td>{{$item->slug}}</td>
-                                            <td>
-                                                @if($item->is_investor)
+                                            <th width="5%">#</th>
+                                            <th style="width: 150px">Hình ảnh</th>
+                                            <th>Tên</th>
+                                            <th>Slug</th>
+                                            <th>Loại</th>
+                                            <th width="100px"></th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        @foreach($partner as $item)
+                                            <tr>
+                                                <td>{{$loop->iteration}}</td>
+                                                <td>
+                                                    <img src="{{asset('images/partner')}}/{{$item->image}}"
+                                                         style="width: 100%">
+                                                </td>
+                                                <td>{{$item->name}}</td>
+                                                <td>{{$item->slug}}</td>
+                                                <td>
+                                                    @if($item->is_investor)
                                                         <label class="label label-danger">Chủ đầu tư</label>
-                                                @endif
+                                                    @endif
                                                     @if($item->is_connect)
                                                         <label class="label label-success">Sàn liên kết</label>
                                                     @endif
-                                            </td>
-                                            <td>
-                                                <a href="{{url('partner/edit/')}}/{{$item->id}}" class="btn btn-primary" title="Chi thiết"><i class="fa fa-pencil-square-o"></i></a>
-                                                <a href="{{url('partner/delete')}}/{{$item->id}}" class="btn btn-danger delete" title="Xóa"><i class="fa fa-close"></i></a>
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                    </tbody>
-                                </table>
+                                                        @if($item->is_bank)
+                                                            <label class="label label-primary">Ngân hàng</label>
+                                                        @endif
+                                                </td>
+                                                <td>
+                                                    <a href="{{url('partner/edit/')}}/{{$item->id}}"
+                                                       class="btn btn-primary" title="Chi thiết"><i
+                                                                class="fa fa-pencil-square-o"></i></a>
+                                                    <a href="{{url('partner/delete')}}/{{$item->id}}"
+                                                       class="btn btn-danger delete" title="Xóa"><i
+                                                                class="fa fa-close"></i></a>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                        </tbody>
+                                    </table>
                                 @endif
                             </div>
                             <div class="tab-pane" id="english">
@@ -93,7 +102,8 @@
                                             <tr>
                                                 <td>{{$loop->iteration}}</td>
                                                 <td>
-                                                    <img src="{{asset('images/partner')}}/{{$item->image}}" style="width: 100%">
+                                                    <img src="{{asset('images/partner')}}/{{$item->image}}"
+                                                         style="width: 100%">
                                                 </td>
                                                 <td>{{$item->name}}</td>
                                                 <td>{{$item->slug}}</td>
@@ -106,8 +116,12 @@
                                                     @endif
                                                 </td>
                                                 <td>
-                                                    <a href="{{url('partner/edit/')}}/{{$item->id}}" class="btn btn-primary" title="Chi thiết"><i class="fa fa-pencil-square-o"></i></a>
-                                                    <a href="{{url('partner/delete')}}/{{$item->id}}" class="btn btn-danger delete" title="Xóa"><i class="fa fa-close"></i></a>
+                                                    <a href="{{url('partner/edit/')}}/{{$item->id}}"
+                                                       class="btn btn-primary" title="Chi thiết"><i
+                                                                class="fa fa-pencil-square-o"></i></a>
+                                                    <a href="{{url('partner/delete')}}/{{$item->id}}"
+                                                       class="btn btn-danger delete" title="Xóa"><i
+                                                                class="fa fa-close"></i></a>
                                                 </td>
                                             </tr>
                                         @endforeach
@@ -131,12 +145,12 @@
     <script>
         var table = $('#datatable').DataTable({
             "aoColumnDefs": [
-                { 'bSortable': false, 'aTargets': [ 0,2 ] }
+                {'bSortable': false, 'aTargets': [0, 2]}
             ]
         });
         var table1 = $('#datatable1').DataTable({
             "aoColumnDefs": [
-                { 'bSortable': false, 'aTargets': [ 0,2 ] }
+                {'bSortable': false, 'aTargets': [0, 2]}
             ]
         });
     </script>

@@ -48,6 +48,16 @@ Route::group(['namespace' => 'Backend','middleware'=>'backend','prefix'=>'/'],fu
         Route::get('/project/delete/{id}', 'ProjectController@deleteProject');
         Route::delete('/project/destroy/{id}', 'ProjectController@destroyProject');
     });
+    //ban lanh đạo
+    Route::group(['namespace'=>'People','prefix'=>'/people'],function (){
+        Route::get('/','PeopleController@getAll');
+        Route::get('/create','CreatePeopleController@Create');
+        Route::post('/storage','CreatePeopleController@Storage');
+        Route::get('/edit/{id}','UpdatePeopleController@Edit');
+        Route::post('/update/{id}','UpdatePeopleController@Update');
+        Route::get('/delete/{id}', 'PeopleController@deleteProject');
+        Route::delete('/destroy/{id}', 'PeopleController@destroyProject');
+    });
     //tuyển dụng
     Route::group(['namespace'=>'Recruitment','prefix'=>'/'],function (){
         Route::get('/recruitment','RecruitmentController@getAll');

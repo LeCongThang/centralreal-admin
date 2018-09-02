@@ -33,6 +33,7 @@ class CreatePartnerController extends Controller
             $partner->name=$request->name;
             $partner->is_investor=$request->is_check==1 ? 1:0;
             $partner->is_connect=$request->is_check==0 ? 1:0;
+            $partner->is_bank=$request->is_check==2 ? 1:0;
             $partner->slug=str_slug($request->name);
             $partner->description_vi=$request->description_vi;
             $partner->description_en=$request->description_en;
