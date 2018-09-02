@@ -21,7 +21,7 @@ class GalleryController extends Controller
      */
     public function getAllGallery()
     {
-        $gallery_list = Gallery::with(['gallery_images'])->where('is_active',1)
+        $gallery_list = Gallery::with(['gallery_images'])->where('is_active', 1)
             ->orderByDesc('updated_at')
             ->paginate(6);
         if ($gallery_list) {
@@ -45,9 +45,13 @@ class GalleryController extends Controller
     public function getGalleryById($gallery_id)
     {
         $gallery = Gallery::with(['gallery_images'])->find($gallery_id);
+        $gallery_related = Gallery::where('id', '!=', $gallery->id)->orderByDesc('updated_at')->limit(4)->get();
         if ($gallery) {
             return response()->json([
-                'data' => $gallery,
+                'data' => [
+                    'gallery' => $gallery,
+                    'gallery_detail' => $gallery_related
+                ],
                 'message' => 'Success'
             ])->setStatusCode('200', 'Success');
         }
