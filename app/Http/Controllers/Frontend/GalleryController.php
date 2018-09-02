@@ -60,5 +60,4 @@ class GalleryController extends Controller
             'message' => 'Data Not found'
         ])->setStatusCode('404', 'Not found');
     }
-
 }
