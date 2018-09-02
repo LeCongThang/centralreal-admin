@@ -45,7 +45,7 @@ class GalleryController extends Controller
     public function getGalleryById($gallery_id)
     {
         $gallery = Gallery::with(['gallery_images'])->find($gallery_id);
-        $gallery_related = Gallery::with(['gallery_images'])->where('id', '!=', $gallery->id)->orderByDesc('updated_at')->limit(4)->get();
+        $gallery_related = Gallery::with(['gallery_images'])->where('id', '!=', $gallery->id)->orderByDesc('updated_at')->limit(3)->get();
         if ($gallery) {
             return response()->json([
                 'data' => [
