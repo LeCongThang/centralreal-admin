@@ -39,7 +39,7 @@ class ProjectController extends Controller
                 'image',
                 'slug'
             )
-            ->paginate(9);
+            ->paginate(6);
 
         if ($project_list) {
             return response()->json([

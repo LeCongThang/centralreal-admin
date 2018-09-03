@@ -38,7 +38,6 @@ class HomeController extends Controller
                ->get();
            $events=News::where('is_featured',1)->where('post_type',0)
                ->orderByDesc('updated_at')
-               ->limit(3)
                ->select('id',
                    'title_vi',
                    'title_en',

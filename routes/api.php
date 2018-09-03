@@ -22,6 +22,8 @@ Route::group(['namespace' => 'Frontend','prefix'=>'v1'],function(){
     Route::get('config', 'HomeController@getConfig');
     //about us
     Route::get('about', 'AboutController@getAbout');
+    Route::get('leadership', 'AboutController@getAllLeaderShip');
+    Route::get('leadership/{id}', 'AboutController@getLeaderShipById');
     //contact
     Route::post('contact', 'ContactsController@postContact');
     Route::post('event-register', 'ContactsController@registerEvent');

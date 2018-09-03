@@ -16,6 +16,8 @@ use App\Models\RecruitmentRole;
 
 class RecruitmentController extends Controller
 {
+    const ACTIVE = 1;
+    const DEACTIVE = 0;
     /**
      * Get all recruitment
      *
@@ -24,7 +26,7 @@ class RecruitmentController extends Controller
     public function getAllRecruitment()
     {
         $recruitment_central_real = RecruitmentCentralReal::orderBy('sort_order')->get();
-        $recruitment_list = Recruitment::orderByDesc('updated_at')->get();
+        $recruitment_list = Recruitment::where('is_active',self::ACTIVE)->orderByDesc('updated_at')->get();
         $recruitment_category = RecruitmentRole::where('is_delete',0)->orderByDesc('updated_at')->get();
         if ($recruitment_list) {
             return response()->json([
