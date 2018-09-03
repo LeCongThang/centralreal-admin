@@ -104,7 +104,8 @@ class HomeController extends Controller
                'project'=>url('images/project/'),
                'recruitment'=>url('images/recruitment/'),
                'slider'=>url('images/slider/'),
-               'config'=>url('images/config/')
+               'config'=>url('images/config/'),
+               'people'=>url('images/people/')
            ];
            return response()->json([
                'data' => [

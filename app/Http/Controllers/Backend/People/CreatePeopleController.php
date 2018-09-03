@@ -54,15 +54,15 @@ class CreatePeopleController extends Controller
             $people = new People();
             $people->name_vi = $request->name_vi;
             $people->name_en = $request->name_en;
-            $people->slug = str_slug($request->name);
+            $people->slug = str_slug($request->position_vi) . '-' . str_slug($request->name_vi);
             $people->description_vi = $request->description_vi;
             $people->description_en = $request->description_en;
             $people->position_vi = $request->position_vi;
             $people->position_en = $request->position_en;
-            $people->is_active = $request->is_active;
+            $people->is_active = isset($request->is_active) ? 1:0;
             if ($request->hasFile('avatar')) {
                 $image = $request->file('avatar');
-                $filename = 'people-'.str_slug($request->name_vi).'-'. time() . '.jpg';
+                $filename = 'people-' . str_slug($request->name_vi) . '-' . time() . '.jpg';
                 $destinationPath = public_path('images/people/' . $filename);
                 Image::make($image->getRealPath())->save($destinationPath);
                 $people->avatar = $filename;
@@ -70,6 +70,7 @@ class CreatePeopleController extends Controller
             $people->save();
             return redirect('people')->with('success', 'Thêm thành công!');
         } catch (\Exception $e) {
+            dd($e);
             if (File::exists(public_path('images/people/' . $filename))) {
                 File::delete(public_path('images/people/' . $filename));
             }

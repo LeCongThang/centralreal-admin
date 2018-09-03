@@ -56,6 +56,7 @@ class UpdatePeopleController extends Controller
             if ($people) {
                 $people->name_vi = $request->name_vi;
                 $people->name_en = $request->name_en;
+                $people->slug = str_slug($request->position_vi) . '-' . str_slug($request->name_vi);
                 $people->description_vi = $request->description_vi;
                 $people->description_en = $request->description_en;
                 $people->position_vi = $request->position_vi;

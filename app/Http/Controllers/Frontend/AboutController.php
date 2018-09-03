@@ -36,12 +36,13 @@ class AboutController extends Controller
     }
     public function getAllLeaderShip(){
         try{
-            $about_us = People::orderBy('id')->all();
+            $about_us = People::orderBy('id')->get();
             return response()->json([
                 'data' => $about_us,
                 'message' => 'Success'
             ])->setStatusCode('200', 'Success');
         }catch (\Exception $e){
+            dd($e);
             return response()->json([
                 'data' => [],
                 'message' => 'Data null'
