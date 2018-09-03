@@ -57,8 +57,6 @@ class ContactsController extends Controller
             $register_event->name=$data['name'];
             $register_event->phone=$data['phone'];
             $register_event->email=$data['email'];
-            $register_event->client_ip=$request->ip();
-            $register_event->client_ip=$request->get('budget');
             if($register_event->save()){
                 return response()->json([
                     'data' => $register_event,

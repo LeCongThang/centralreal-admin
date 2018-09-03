@@ -13,6 +13,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Partner;
 use App\Models\Project;
+use App\Models\ProjectRegister;
+use Illuminate\Http\Request;
 
 class ProjectController extends Controller
 {
@@ -126,5 +128,32 @@ class ProjectController extends Controller
             'data' => [],
             'message' => 'Data Not found'
         ])->setStatusCode('404', 'Not found');
+    }
+    public function registerProject(Request $request){
+        try{
+            $data = $request->all();
+            $register_project = new ProjectRegister();
+            $register_project->event_id=$data['project_id'];
+            $register_project->name=$data['name'];
+            $register_project->phone=$data['phone'];
+            $register_project->email=$data['email'];
+            if($register_project->save()){
+                return response()->json([
+                    'data' => $register_project,
+                    'message' => 'Success'
+                ])->setStatusCode('200', 'Success');
+            }else{
+                return response()->json([
+                    'data' => [],
+                    'message' => 'Data Not found'
+                ])->setStatusCode('404', 'Not found');
+            }
+        }catch (\Exception $e){
+            dd($e);
+            return response()->json([
+                'data' => [],
+                'message' => 'Data Not found'
+            ])->setStatusCode('404', 'Not found');
+        }
     }
 }

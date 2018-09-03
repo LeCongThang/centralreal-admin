@@ -223,6 +223,52 @@
                     </div>
                 </div>
             </div>
+            <div class="col-md-12">
+                <!-- general form elements -->
+                <div class="box box-primary">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Thông tin trang đối tác</h3>
+                    </div>
+                    <div class="box-body">
+                        <div class="nav-tabs-custom">
+                            <ul class="nav nav-tabs">
+                                <li class="active"><a href="#vietnam2" data-toggle="tab">Tiếng Viêt</a></li>
+                                <li><a href="#english2" data-toggle="tab">English</a></li>
+                            </ul>
+                        </div>
+                        <div class="tab-content">
+                            <div class="active tab-pane" id="vietnam2">
+                                <div class="form-group">
+                                    <label>Mô tả đối tác Chủ đầu tư</label>
+                                    <textarea class="form-control" name="partner_invester_vi" rows="4">{{$system->partner_invester_vi}}</textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>Mô tả đối tác Sàn Liên Kết</label>
+                                    <textarea class="form-control" name="partner_connect_vi" rows="4">{{$system->partner_connect_vi}}</textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>Mô tả đối tác Ngân Hàng</label>
+                                    <textarea class="form-control" name="partner_bank_vi" rows="4">{{$system->partner_bank_vi}}</textarea>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="english2">
+                                <div class="form-group">
+                                    <label>Mô tả đối tác Chủ đầu tư</label>
+                                    <textarea class="form-control" name="partner_invester_en" rows="4">{{$system->partner_invester_en}}</textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>Mô tả đối tác Sàn Liên Kết</label>
+                                    <textarea class="form-control" name="partner_connect_en" rows="4">{{$system->partner_connect_en}}</textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>Mô tả đối tác Ngân Hàng</label>
+                                    <textarea class="form-control" name="partner_bank_en" rows="4">{{$system->partner_bank_en}}</textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="col-md-12 text-center">
                 <button type="submit" class="btn btn-primary">Cập nhật</button>
             </div>

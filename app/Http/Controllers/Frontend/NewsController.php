@@ -15,7 +15,9 @@ use App\Models\Project;
 
 class NewsController extends Controller
 {
-
+    const EVENT = 0;
+    const NEWS = 1;
+    const VIDEO = 2;
     /**
      * Get all news
      *
@@ -24,9 +26,9 @@ class NewsController extends Controller
     public function getAllNews()
     {
         try{
-            $news_list = News::where('post_type',1)->orderByDesc('is_featured')
+            $news_list = News::where('post_type',self::NEWS)->orderByDesc('is_featured')
                 ->paginate(9);
-            $news_video = News::where('post_type',2)->orderByDesc('created_at')
+            $news_video = News::where('post_type',self::VIDEO)->orderByDesc('created_at')
                 ->paginate(5);
             return response()->json([
                 'data' =>[
@@ -128,27 +130,12 @@ class NewsController extends Controller
     public function getAllEvent()
     {
         try{
-            $event_featured = News::where('post_type',0)->where('is_featured',1)->orderByDesc('created_at')
+            $event_featured = News::where('post_type',self::EVENT)->where('is_featured',1)->orderByDesc('created_at')
                 ->limit(4)->get();
-            $projects_rela=Project::with(['rela_category:id,title_vi,title_en','rela_partner:id,name'])
-                ->where('is_sale', 1)->orderBy('sort_order')->limit(3)
-                ->select('id',
-                    'title_vi',
-                    'title_en',
-                    'category_id',
-                    'partner_id',
-                    'location_vi',
-                    'location_en',
-                    'image',
-                    'image_thumbnail',
-                    'slug',
-                    'des_short_vi',
-                    'des_short_en'
-                )
-                ->get();
+            $event = News::where('post_type',self::EVENT)->orderByDesc('id')->paginate(4);
             return response()->json([
                 'data' => [
-                    'product_featured'=>$projects_rela,
+                    'event'=>$event,
                     'event_featured'=>$event_featured
                 ],
                 'message' => 'Success'
@@ -167,7 +154,7 @@ class NewsController extends Controller
     public function getAllVideo()
     {
         try{
-            $news_video = News::where('post_type',2)->orderByDesc('created_at')
+            $news_video = News::where('post_type',self::VIDEO)->orderByDesc('created_at')
                 ->paginate(5);
             return response()->json([
                 'data' =>$news_video,
