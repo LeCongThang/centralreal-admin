@@ -26,7 +26,7 @@ class ProjectController extends Controller
     public function getAllProject()
     {
         $category=Category::where('is_delete',0)->select('id','title_vi','title_en')->get();
-        $partner=Partner::select('id','name')->get();
+        $partner=Partner::select('id','name')->where('is_investor',1)->get();
         $project_list = Project::with(['rela_category:id,title_vi,title_en','rela_partner:id,name','project_images'])->orderByDesc('updated_at')
             ->select('id',
                 'category_id',
