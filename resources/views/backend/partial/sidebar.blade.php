@@ -132,6 +132,7 @@
             </li>
             <li><a href="{{url('contact')}}"><i class="fa fa-envelope-o text-yellow"></i> <span>QUẢN LÝ LIÊN HỆ</span></a></li>
             <li><a href="{{url('event-register')}}"><i class="fa fa-paper-plane text-red"></i> <span>QUẢN LÝ ĐĂNG KÝ SỰ KIỆN</span></a></li>
+            <li><a href="{{url('project-register')}}"><i class="fa fa-paper-plane text-red"></i> <span>QUẢN LÝ ĐĂNG KÝ DỰ ÁN</span></a></li>
         </ul>
     </section>
     <!-- /.sidebar -->

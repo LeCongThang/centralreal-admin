@@ -32,4 +32,8 @@ class Project extends Model
     {
         return $this->belongsTo('App\Models\Partner', 'partner_id', 'id');
     }
+    public function project_register()
+    {
+        return $this->hasMany('App\Models\ProjectRegister', 'project_id', 'id');
+    }
 }

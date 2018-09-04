@@ -133,7 +133,7 @@ class ProjectController extends Controller
         try{
             $data = $request->all();
             $register_project = new ProjectRegister();
-            $register_project->event_id=$data['project_id'];
+            $register_project->project_id=$data['project_id'];
             $register_project->name=$data['name'];
             $register_project->phone=$data['phone'];
             $register_project->email=$data['email'];
@@ -149,7 +149,6 @@ class ProjectController extends Controller
                 ])->setStatusCode('404', 'Not found');
             }
         }catch (\Exception $e){
-            dd($e);
             return response()->json([
                 'data' => [],
                 'message' => 'Data Not found'

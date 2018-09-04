@@ -161,10 +161,14 @@ Route::group(['namespace' => 'Backend','middleware'=>'backend','prefix'=>'/'],fu
         Route::get('/contact/delete/{id}', 'ContactController@deleteContact');
         Route::delete('/contact/destroy/{id}', 'ContactController@destroyContact');
     });
-    //about
+    //register
     Route::group(['namespace'=>'EventRegister','prefix'=>'/'],function (){
         Route::get('/event-register','EventRegisterController@getAll');
         Route::get('/event-register/{id_event}','EventRegisterController@getClient');
+    });
+    Route::group(['namespace'=>'ProjectRegister','prefix'=>'/'],function (){
+        Route::get('/project-register','ProjectRegisterController@getAll');
+        Route::get('/project-register/{id}','ProjectRegisterController@getClient');
     });
 
 });

@@ -24,7 +24,7 @@ return array(
     'App\\Http\\Controllers\\Backend\\Config\\ConfigController' => $baseDir . '/app/Http/Controllers/Backend/Config/ConfigController.php',
     'App\\Http\\Controllers\\Backend\\Contact\\ContactController' => $baseDir . '/app/Http/Controllers/Backend/Contact/ContactController.php',
     'App\\Http\\Controllers\\Backend\\Contact\\UpdateContactController' => $baseDir . '/app/Http/Controllers/Backend/Contact/UpdateContactController.php',
-    'App\\Http\\Controllers\\Backend\\EventRegister\\EventRegisterController' => $baseDir . '/app/Http/Controllers/Backend/EventRegister/EventRegisterController.php',
+    'App\\Http\\Controllers\\Backend\\EventRegister\\EventRegisterController' => $baseDir . '/app/Http/Controllers/Backend/EventRegister/ProjectRegisterController.php',
     'App\\Http\\Controllers\\Backend\\FinderController' => $baseDir . '/app/Http/Controllers/Backend/FinderController.php',
     'App\\Http\\Controllers\\Backend\\Gallery\\CreateGalleryController' => $baseDir . '/app/Http/Controllers/Backend/Gallery/CreateGalleryController.php',
     'App\\Http\\Controllers\\Backend\\Gallery\\GalleryController' => $baseDir . '/app/Http/Controllers/Backend/Gallery/GalleryController.php',
