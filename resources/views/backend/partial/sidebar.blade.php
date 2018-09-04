@@ -84,6 +84,7 @@
                     <li><a href="{{url('recruitment-central-real')}}"><i class="fa fa-list-ul"></i> CentralReal</a></li>
                     <li><a href="{{url('recruitment')}}"><i class="fa fa-list-ul"></i> Danh sách tuyển dụng</a></li>
                     <li><a href="{{url('recruitment-role')}}"><i class="fa fa-list-ul"></i> Vị trí tuyển dụng</a></li>
+                    <li><a href="{{url('education')}}"><i class="fa fa-list-ul"></i> Đào tạo</a></li>
                 </ul>
             </li>
             <li class="treeview">

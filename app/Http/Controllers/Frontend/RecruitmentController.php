@@ -10,6 +10,7 @@ namespace App\Http\Controllers\Frontend;
 
 
 use App\Http\Controllers\Controller;
+use App\Models\Education;
 use App\Models\Recruitment;
 use App\Models\RecruitmentCentralReal;
 use App\Models\RecruitmentRole;
@@ -18,6 +19,7 @@ class RecruitmentController extends Controller
 {
     const ACTIVE = 1;
     const DEACTIVE = 0;
+
     /**
      * Get all recruitment
      *
@@ -26,15 +28,45 @@ class RecruitmentController extends Controller
     public function getAllRecruitment()
     {
         $recruitment_central_real = RecruitmentCentralReal::orderBy('sort_order')->get();
-        $recruitment_list = Recruitment::where('is_active',self::ACTIVE)->orderByDesc('updated_at')->get();
-        $recruitment_category = RecruitmentRole::where('is_delete',0)->orderByDesc('updated_at')->get();
+        $recruitment_list = Recruitment::where('is_active', self::ACTIVE)->orderByDesc('updated_at')->get();
+        $recruitment_category = RecruitmentRole::where('is_delete', 0)->orderByDesc('updated_at')->get();
         if ($recruitment_list) {
             return response()->json([
                 'data' => [
-                    'recruitment_central_real'=>$recruitment_central_real,
-                    'recruitment_category'=>$recruitment_category,
-                    'recruitment'=>$recruitment_list
+                    'recruitment_central_real' => $recruitment_central_real,
+                    'recruitment_category' => $recruitment_category,
+                    'recruitment' => $recruitment_list
                 ],
+                'message' => 'Success'
+            ])->setStatusCode('200', 'Success');
+        }
+        return response()->json([
+            'data' => [],
+            'message' => 'Data null'
+        ])->setStatusCode('400', 'Bad request');
+    }
+
+    public function getAllWhyChooseUs()
+    {
+        $recruitment_central_real = RecruitmentCentralReal::orderBy('sort_order')->get();
+        if ($recruitment_central_real) {
+            return response()->json([
+                'data' => $recruitment_central_real,
+                'message' => 'Success'
+            ])->setStatusCode('200', 'Success');
+        }
+        return response()->json([
+            'data' => [],
+            'message' => 'Data null'
+        ])->setStatusCode('400', 'Bad request');
+    }
+
+    public function getWhyChooseUsDetail($id)
+    {
+        $recruitment_central_real = RecruitmentCentralReal::find($id);
+        if ($recruitment_central_real) {
+            return response()->json([
+                'data' => $recruitment_central_real,
                 'message' => 'Success'
             ])->setStatusCode('200', 'Success');
         }
@@ -56,6 +88,19 @@ class RecruitmentController extends Controller
         if ($recruitment) {
             return response()->json([
                 'data' => $recruitment,
+                'message' => 'Success'
+            ])->setStatusCode('200', 'Success');
+        }
+        return response()->json([
+            'data' => [],
+            'message' => 'Data Not found'
+        ])->setStatusCode('404', 'Not found');
+    }
+    public function getEducationById($id){
+        $edu = Education::find($id);
+        if ($edu) {
+            return response()->json([
+                'data' => $edu,
                 'message' => 'Success'
             ])->setStatusCode('200', 'Success');
         }

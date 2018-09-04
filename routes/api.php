@@ -50,4 +50,6 @@ Route::group(['namespace' => 'Frontend','prefix'=>'v1'],function(){
     //Recruitment
     Route::get('recruitment', 'RecruitmentController@getAllRecruitment');
     Route::get('recruitment/{recruitment_id}', 'RecruitmentController@getRecruitmentById');
+    Route::get('why-choose-us', 'RecruitmentController@getAllWhyChooseUs');
+    Route::get('education/{id}', 'RecruitmentController@getEducationById');
 });

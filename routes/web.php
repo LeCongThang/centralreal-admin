@@ -88,6 +88,16 @@ Route::group(['namespace' => 'Backend','middleware'=>'backend','prefix'=>'/'],fu
         Route::get('/recruitment-role/delete/{id}', 'RecruitmentRoleController@deleteRecruitmentRole');
         Route::delete('/recruitment-role/destroy/{id}', 'RecruitmentRoleController@destroyRecruitmentRole');
     });
+    //đào tạo
+    Route::group(['namespace'=>'Education','prefix'=>'education'],function (){
+        Route::get('/','EducationController@getAll');
+        Route::get('/create','CreateEducationController@Create');
+        Route::post('/storage','CreateEducationController@Storage');
+        Route::get('/edit/{id}','UpdateEducationController@Edit');
+        Route::post('/update/{id}','UpdateEducationController@Update');
+        Route::get('/delete/{id}', 'EducationController@deleteEducation');
+        Route::delete('/destroy/{id}', 'EducationController@destroyEducation');
+    });
     //slider
     Route::group(['namespace'=>'Slider','prefix'=>'/'],function (){
         Route::get('/slider','SliderController@getAll');

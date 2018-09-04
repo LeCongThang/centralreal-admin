@@ -112,19 +112,19 @@
                     </div>
                     <div class="box-body">
                         <div class="form-group">
-                            <label>Dự án</label>
+                            <label>Nhân Viên</label>
                             <input type="number" class="form-control" name="projects" value="{{$about->projects  or '1'}}">
                         </div>
                         <div class="form-group">
-                            <label>Vận tải</label>
+                            <label>Dự án</label>
                             <input type="number" class="form-control" name="transports" value="{{$about->transports  or '1'}}">
                         </div>
                         <div class="form-group">
-                            <label>Giải thưởng</label>
+                            <label>Đối tác</label>
                             <input type="number" class="form-control" name="awards" value="{{$about->awards  or '1'}}">
                         </div>
                         <div class="form-group">
-                            <label>Khách hàng</label>
+                            <label>Sàn liên kết</label>
                             <input type="number" class="form-control" name="clients" value="{{$about->clients  or '1'}}">
                         </div>
                     </div>
