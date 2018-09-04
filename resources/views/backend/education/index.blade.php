@@ -44,7 +44,7 @@
                                         <td>{{$item->title_vi}}</td>
                                         <td>
                                             <input type="text"
-                                                   value="http://centralreal.cf/{{$item->id}}/{{$item->slug}}"
+                                                   value="http://centralreal.cf/educate/{{$item->id}}/{{$item->slug}}"
                                                    class="input{{$item->id}} form-control" style="width:100%!important;"/>
                                         </td>
                                         <td>
