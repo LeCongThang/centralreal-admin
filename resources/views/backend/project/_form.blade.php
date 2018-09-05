@@ -109,6 +109,10 @@
                                 </span>
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label>SEO Keywords</label>
+                            <textarea class="form-control" rows="9" name="keywords" id="keywords">{{$isEdit ? $project->keywords : old("keywords")}}</textarea>
+                        </div>
                     </div>
                 </div>
                 <!-- /.box-body -->
@@ -339,7 +343,6 @@
         }else{
             document.getElementById('div_sort_order').style.display = 'none';
         }
-        console.log(check);
         $('#is_sale').click(function () {
             var c=$(this).is(':checked');
             if(c){

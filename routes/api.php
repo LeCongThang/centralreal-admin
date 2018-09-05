@@ -46,6 +46,7 @@ Route::group(['namespace' => 'Frontend','prefix'=>'v1'],function(){
     Route::get('project', 'ProjectController@getAllProject');
     Route::get('project/filter/{category_id}/{partner_id}', 'ProjectController@getFilter');
     Route::get('project/{project_id}', 'ProjectController@getProjectById');
+    Route::get('category', 'ProjectController@getAllCategory');
     Route::post('project-register', 'ProjectController@registerProject');
     //Recruitment
     Route::get('recruitment', 'RecruitmentController@getAllRecruitment');

@@ -155,4 +155,11 @@ class ProjectController extends Controller
             ])->setStatusCode('404', 'Not found');
         }
     }
+    public function getAllCategory(){
+        $cat = Category::orderByDesc('sort_order')->get();
+        return response()->json([
+            'data'=>$cat,
+            'message' => 'Success'
+        ])->setStatusCode(200, "Success");
+    }
 }

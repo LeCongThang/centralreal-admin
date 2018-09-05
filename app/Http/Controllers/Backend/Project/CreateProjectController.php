@@ -72,6 +72,7 @@ class CreateProjectController extends Controller
             $project->is_sale=isset($request->is_sale) ? 1:0;
             $project->sort_order=isset($request->sort_order) ? $request->sort_order : 1;
             $project->title_vi=$request->title_vi;
+            $project->keywords=$request->keywords;
             $project->title_en=$request->title_en;
             $project->category_id=$request->category_id;
             $project->partner_id=$request->partner_id;
