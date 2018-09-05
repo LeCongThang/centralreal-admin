@@ -1,4 +1,4 @@
-<div class="modal fade" id="modal_Deletepeople">
+<div class="modal fade" id="modal_DeleteCulture">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -17,16 +17,16 @@
                     <tbody>
                         <tr>
                             <td>
-                                <img src="{{asset('images/prople')}}/{{$people->avatar}}" style="width: 300px">
+                                <img src="{{asset('images/prople')}}/{{$culture->avatar}}" style="width: 300px">
                             </td>
-                            <td>{{$people->name_vi}}</td>
+                            <td>{{$culture->title_vi}}</td>
 
                         </tr>
                     </tbody>
                 </table>
             </div>
             <div class="modal-footer">
-                {{ Form::open(['url' => url('people/destroy/'.$people->id), 'method' => 'DELETE']) }}
+                {{ Form::open(['url' => url('culture/destroy/'.$culture->id), 'method' => 'DELETE']) }}
                     <button type="button" class="btn btn-info" data-dismiss="modal">Đóng</button>
                     <button type="submit" class="btn btn-danger">Xóa</button>
                 {{ Form::close() }}

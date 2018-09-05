@@ -23,6 +23,7 @@ Route::group(['namespace' => 'Frontend','prefix'=>'v1'],function(){
     //about us
     Route::get('about', 'AboutController@getAbout');
     Route::get('leadership', 'AboutController@getAllLeaderShip');
+    Route::get('culture', 'AboutController@getCulture');
     Route::get('leadership/{id}', 'AboutController@getLeaderShipById');
     //contact
     Route::post('contact', 'ContactsController@postContact');

@@ -11,6 +11,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\AboutUs;
+use App\Models\Culture;
 use App\Models\People;
 
 class AboutController extends Controller
@@ -58,6 +59,20 @@ class AboutController extends Controller
             $about_us = People::find($id);
             return response()->json([
                 'data' => $about_us,
+                'message' => 'Success'
+            ])->setStatusCode('200', 'Success');
+        } catch (\Exception $e) {
+            return response()->json([
+                'data' => [],
+                'message' => 'Data null'
+            ])->setStatusCode('400', 'Bad request');
+        }
+    }
+    public function getCulture(){
+        try {
+            $culture = Culture::orderBy('sort_order')->get();
+            return response()->json([
+                'data' => $culture,
                 'message' => 'Success'
             ])->setStatusCode('200', 'Success');
         } catch (\Exception $e) {

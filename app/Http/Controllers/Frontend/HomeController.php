@@ -107,6 +107,7 @@ class HomeController extends Controller
                'config'=>url('images/config/'),
                'people'=>url('images/people/'),
                'category'=>url('images/category/'),
+               'culture'=>url('images/culture/'),
            ];
            return response()->json([
                'data' => [

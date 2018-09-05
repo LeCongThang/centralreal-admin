@@ -11,12 +11,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class People extends Model
+class Culture extends Model
 {
-    protected $table = 'people';
+    protected $table = 'company_culture';
 
     protected $fillable = [
-        'name_vi', 'description_vi'
+        'title_vi'
     ];
     public $timestamps = true;
 

@@ -38,6 +38,7 @@
                     <li><a href="{{url('system')}}"><i class="fa fa-list-ul"></i> THÔNG TIN CHUNG</a></li>
                     <li><a href="{{url('config-popup')}}"><i class="fa fa-list-ul"></i> CẤU HÌNH POPUP</a></li>
                     <li><a href="{{url('about-us')}}"><i class="fa fa-list-ul"></i> GIỚI THIỆU</a></li>
+                    <li><a href="{{url('culture')}}"><i class="fa fa-list-ul"></i> VĂN HÓA C.TY</a></li>
                 </ul>
             </li>
             <li><a href="{{url('people')}}"><i class="fa fa-envelope-o text-yellow"></i> <span>QUẢN LÝ BAN LÃNH ĐẠO</span></a></li>

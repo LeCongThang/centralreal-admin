@@ -98,6 +98,16 @@ Route::group(['namespace' => 'Backend','middleware'=>'backend','prefix'=>'/'],fu
         Route::get('/delete/{id}', 'EducationController@deleteEducation');
         Route::delete('/destroy/{id}', 'EducationController@destroyEducation');
     });
+    //Văn hóa
+    Route::group(['namespace'=>'Culture','prefix'=>'culture'],function (){
+        Route::get('/','CultureController@getAll');
+        Route::get('/create','CreateCultureController@Create');
+        Route::post('/storage','CreateCultureController@Storage');
+        Route::get('/edit/{id}','UpdateCultureController@Edit');
+        Route::post('/update/{id}','UpdateCultureController@Update');
+        Route::get('/delete/{id}', 'CultureController@deleteCulture');
+        Route::delete('/destroy/{id}', 'CultureController@destroyCulture');
+    });
     //slider
     Route::group(['namespace'=>'Slider','prefix'=>'/'],function (){
         Route::get('/slider','SliderController@getAll');
