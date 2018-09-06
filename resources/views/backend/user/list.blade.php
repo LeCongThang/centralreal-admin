@@ -73,7 +73,7 @@
                                     <div class="btn-group group-{{$value->id}}" role="group">
                                         <a type="button" href="{{url('/')}}/admin/user/{{$value->id}}/edit"
                                            class="btn btn-sm btn-primary"><i class="fa fa-pencil"></i></a>
-                                        @if(Auth::user()->id!=$value->id)
+                                        @if(Auth::user()->id=$value->created_by)
                                             <a type="button" onclick="deleteObj('.group-{{$value->id}}','admin/user/{{$value->id}}','{{$value->name}}')"
                                                class="btn btn-sm btn-danger"><i class="fa fa-trash"></i>
                                             </a>

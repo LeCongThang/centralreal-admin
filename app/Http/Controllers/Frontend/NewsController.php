@@ -28,7 +28,7 @@ class NewsController extends Controller
         try{
             $news_list = News::where('post_type',self::NEWS)->orderByDesc('is_featured')
                 ->paginate(9);
-            $news_video = News::where('post_type',self::VIDEO)->orderByDesc('created_at')
+            $news_video = News::where('post_type',self::VIDEO)->orderByDesc('updated_at')
                 ->paginate(5);
             return response()->json([
                 'data' =>[
@@ -59,7 +59,7 @@ class NewsController extends Controller
     {
         $news = News::find($news_id);
         if ($news) {
-            $news_featured = News::where('id','!=', $news_id)->where('post_type',$news->post_type)->where('is_featured',1)->orderByDesc('created_at')
+            $news_featured = News::where('id','!=', $news_id)->where('post_type',$news->post_type)->where('is_featured',1)->orderByDesc('updated_at')
                 ->limit(5)->get();
             $projects_rela=Project::with(['rela_category:id,title_vi,title_en','rela_partner:id,name'])
                 ->where('is_sale', 1)->orderBy('sort_order')->limit(3)
@@ -95,7 +95,7 @@ class NewsController extends Controller
     {
         $news = News::find($news_id);
         if ($news) {
-            $news_featured = News::where('id','!=', $news_id)->where('post_type',0)->where('is_featured',1)->orderByDesc('created_at')
+            $news_featured = News::where('id','!=', $news_id)->where('post_type',0)->where('is_featured',1)->orderByDesc('updated_at')
                 ->limit(5)->get();
             $projects_rela=Project::with(['rela_category:id,title_vi,title_en','rela_partner:id,name'])
                 ->where('is_sale', 1)->orderBy('sort_order')->limit(3)
@@ -130,7 +130,7 @@ class NewsController extends Controller
     public function getAllEvent()
     {
         try{
-            $event_featured = News::where('post_type',self::EVENT)->where('is_featured',1)->orderByDesc('created_at')
+            $event_featured = News::where('post_type',self::EVENT)->where('is_featured',1)->orderByDesc('updated_at')
                 ->limit(4)->get();
             $event = News::where('post_type',self::EVENT)->orderByDesc('id')->paginate(4);
             return response()->json([
@@ -154,7 +154,7 @@ class NewsController extends Controller
     public function getAllVideo()
     {
         try{
-            $news_video = News::where('post_type',self::VIDEO)->orderByDesc('created_at')
+            $news_video = News::where('post_type',self::VIDEO)->orderByDesc('updated_at')
                 ->paginate(5);
             return response()->json([
                 'data' =>$news_video,

@@ -64,6 +64,7 @@ class UserController extends Controller
         $user->fullname = $request['fullname'];
         $user->email = $request['email'];
         $user->status = $request['status'];
+        $user->created_by = Auth::user()->id;
         if($user->save())
             return redirect($request->save)->with('success','Đã thêm người dùng thành công!');
         return redirect()->back()->withInput()->with('error','Đã xảy ra lỗi khi thêm người dùng, vui lòng thử lại!');
