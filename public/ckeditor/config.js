@@ -9,4 +9,5 @@ CKEDITOR.editorConfig = function( config ) {
     config.language = 'vi';
     config.font_names = 'System Font/Myriad Pro';
     config.image_prefillDimensions = false;
+config.skin = 'office2013';
 };
