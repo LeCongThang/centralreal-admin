@@ -224,7 +224,7 @@ class MimeType
             'odc'   => 'application/vnd.oasis.opendocument.chart',
             'odf'   => 'application/vnd.oasis.opendocument.formula',
             'odi'   => 'application/vnd.oasis.opendocument.image',
-            'odm'   => 'application/vnd.oasis.opendocument.text-layout',
+            'odm'   => 'application/vnd.oasis.opendocument.text-master',
             'odb'   => 'application/vnd.oasis.opendocument.database',
             'ott'   => 'application/vnd.oasis.opendocument.text-template',
         ];

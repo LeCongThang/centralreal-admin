@@ -94,8 +94,12 @@
         }
         $('.editors').each( function () {
             CKEDITOR.replace(this.id, {
-                filebrowserUploadUrl: '/uploader/recruitment',
-                filebrowserBrowseUrl:'{{URL::asset('')}}folder/recruitment'
+                {{--filebrowserUploadUrl: '/uploader/recruitment',--}}
+                {{--filebrowserBrowseUrl:'{{URL::asset('')}}folder/recruitment'--}}
+                filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
+                filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token=',
+                filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
+                filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token='
             });
         });
     </script>

@@ -409,8 +409,12 @@
         }
         $('.editors').each( function () {
             CKEDITOR.replace(this.id, {
-                filebrowserUploadUrl: '/uploader/project',
-                filebrowserBrowseUrl:'{{URL::asset('')}}link-folder/project'
+                {{--filebrowserUploadUrl: '/uploader/project',--}}
+                {{--filebrowserBrowseUrl:'{{URL::asset('')}}link-folder/project'--}}
+                filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
+                filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token=',
+                filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
+                filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token='
             });
         });
     </script>

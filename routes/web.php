@@ -208,3 +208,6 @@ Route::group(['namespace' => 'Backend','middleware'=>'backend','prefix'=>'/'],fu
 //Route::get('/news/{id}-{slug}.html', 'HomeController@index');
 //Route::get('/contact.html', 'HomeController@index');
 //Route::post('/contact', 'HomeController@index');
+Route::get('/laravel-filemanager','\UniSharp\LaravelFilemanager\Controllers\LfmController@show');
+
+Route::post('/laravel-filemanager/upload', '\UniSharp\LaravelFilemanager\Controllers\UploadController@upload')->name('unisharp.lfm.upload');
