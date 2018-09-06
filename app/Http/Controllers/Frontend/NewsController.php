@@ -132,7 +132,7 @@ class NewsController extends Controller
         try{
             $event_featured = News::where('post_type',self::EVENT)->where('is_featured',1)->orderByDesc('updated_at')
                 ->limit(4)->get();
-            $event = News::where('post_type',self::EVENT)->orderByDesc('id')->paginate(4);
+            $event = News::where('post_type',self::EVENT)->orderByDesc('updated_at')->paginate(4);
             return response()->json([
                 'data' => [
                     'event'=>$event,
