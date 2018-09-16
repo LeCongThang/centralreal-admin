@@ -12,7 +12,10 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Models\Contact;
 use App\Models\EventRegister;
+use App\Models\News;
+use Illuminate\Console\Scheduling\Event;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class ContactsController extends Controller
 {
@@ -28,6 +31,14 @@ class ContactsController extends Controller
             $contact->content=$data['content'];
             $contact->client_ip=$request->ip();
             if($contact->save()){
+                $email = 'marketing@ccr.vn';
+                $result = Mail::send('backend.send_mail_contact', array(
+                    'contact' => $contact,
+                ), function ($message) use ($email) {
+                    $message->to([$email]);
+                    $message->from(env('MAIL_USERNAME'));
+                    $message->subject('CENTRAL REAL');
+                });
                 return response()->json([
                     'data' => $contact,
                     'message' => 'Success'
@@ -58,9 +69,19 @@ class ContactsController extends Controller
             $register_event->phone=$data['phone'];
             $register_event->email=$data['email'];
             if($register_event->save()){
+                $event = News::find($data['event_id']);
+                $email = 'marketing@ccr.vn';
+                $result = Mail::send('backend.send_mail_event', array(
+                    'event' => $event,
+                    'register_event' => $register_event,
+                ), function ($message) use ($email) {
+                    $message->to([$email]);
+                    $message->from(env('MAIL_USERNAME'));
+                    $message->subject('CENTRAL REAL');
+                });
                 return response()->json([
                     'data' => $register_event,
-                    'message' => 'Success'
+                    'message' => 'Success',
                 ])->setStatusCode('200', 'Success');
             }else{
                 return response()->json([
